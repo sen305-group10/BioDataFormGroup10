@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Student Biodata Form</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ffe4f0, #fbd3ff);
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        width: 350px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        border-top: 6px solid #ec4899;
+        box-shadow: 0 8px 24px rgba(236, 72, 153, 0.25);
+      }
+
+      h2 {
+        text-align: center;
+        color: #db2777;
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+        color: #9d174d;
+        font-weight: bold;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        box-sizing: border-box;
+        border: 1px solid #f9a8d4;
+        border-radius: 5px;
+        background-color: #fff7fb;
+      }
+
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: #ec4899;
+        box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.25);
+        background-color: white;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
+        background: linear-gradient(90deg, #ec4899, #a855f7);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: linear-gradient(90deg, #be185d, #7e22ce);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Student Biodata Form</h2>
+
+      <form id="biodataForm">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" required />
+
+        <label for="matric">Matric Number:</label>
+        <input type="text" id="matric" required />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" required />
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" required />
+
+        <label for="gender">Gender:</label>
+        <select id="gender" required>
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required />
+
+        <label for="department">Department:</label>
+        <input type="text" id="department" required />
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("biodataForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let fullname = document.getElementById("fullname").value.trim();
+          let matric = document.getElementById("matric").value.trim();
+          let email = document.getElementById("email").value.trim();
+          let phone = document.getElementById("phone").value.trim();
+          let gender = document.getElementById("gender").value;
+          let dob = document.getElementById("dob").value;
+          let department = document.getElementById("department").value.trim();
+
+          if (
+            fullname === "" ||
+            matric === "" ||
+            email === "" ||
+            phone === "" ||
+            gender === "" ||
+            dob === "" ||
+            department === ""
+          ) {
+            alert("Please fill in all fields.");
+            return;
+          }
+
+          if (!/^\d{11}$/.test(phone)) {
+            alert("Phone number must contain exactly 11 digits.");
+            return;
+          }
+
+          if (new Date(dob) > new Date()) {
+            alert("Date of birth cannot be in the future.");
+            return;
+          }
+
+          alert("Student biodata submitted successfully!");
+
+          document.getElementById("biodataForm").reset();
+        });
+    </script>
+  </body>
+</html>
