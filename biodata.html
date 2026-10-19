@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Biodata Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            background-color: white;
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="biodataForm">
+        <h2>Student Biodata</h2>
+
+        <label>Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label>Age:</label>
+        <input type="number" id="age" placeholder="Enter your age">
+
+        <label>Gender:</label>
+        <select id="gender">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <label>Department:</label>
+        <input type="text" id="department" placeholder="Enter your department">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("biodataForm").onsubmit = function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let gender = document.getElementById("gender").value;
+            let email = document.getElementById("email").value;
+            let department = document.getElementById("department").value;
+
+            if (name == "" || age == "" || gender == "" ||
+                email == "" || department == "") {
+                alert("Please fill in all fields!");
+            } 
+            else if (age < 1 || age > 100) {
+                alert("Please enter a valid age!");
+            } 
+            else {
+                alert("Biodata submitted successfully!");
+            }
+        };
+    </script>
+
+</body>
+</html>
