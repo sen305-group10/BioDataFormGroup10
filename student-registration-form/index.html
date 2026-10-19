@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Registration Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sheet">
+  <header>
+    <h1>Student Registration Form</h1>
+    <p>Fill in every field marked with a red star, then press Submit.</p>
+  </header>
+
+  <form id="studentForm" novalidate>
+    <fieldset>
+      <legend>Personal details</legend>
+      <div class="grid">
+        <div><label class="req" for="firstName">First name</label><input type="text" id="firstName" name="First name" required><div class="msg"></div></div>
+        <div><label class="req" for="lastName">Last name</label><input type="text" id="lastName" name="Last name" required><div class="msg"></div></div>
+        <div><label for="middleName">Middle name</label><input type="text" id="middleName" name="Middle name"><div class="msg"></div></div>
+        <div><label class="req" for="dob">Date of birth</label><input type="date" id="dob" name="Date of birth" required><div class="msg"></div></div>
+        <div id="genderWrap">
+          <span class="label req">Gender</span>
+          <div class="choices">
+            <label><input type="radio" name="Gender" value="Male"> Male</label>
+            <label><input type="radio" name="Gender" value="Female"> Female</label>
+            <label><input type="radio" name="Gender" value="Other"> Other</label>
+          </div>
+          <div class="msg"></div>
+        </div>
+        <div>
+          <label for="marital">Marital status</label>
+          <select id="marital" name="Marital status"><option value="">Select</option><option>Single</option><option>Married</option><option>Other</option></select>
+        </div>
+        <div><label class="req" for="nationality">Nationality</label><input type="text" id="nationality" name="Nationality" required><div class="msg"></div></div>
+        <div><label for="state">State of origin</label><input type="text" id="state" name="State of origin"><div class="msg"></div></div>
+        <div class="full">
+          <span class="label">Passport photo</span>
+          <div class="photo-row">
+            <div class="photo-box" id="photoBox">No photo</div>
+            <input type="file" id="photo" accept="image/*">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Contact details</legend>
+      <div class="grid">
+        <div><label class="req" for="email">Email address</label><input type="email" id="email" name="Email" required><div class="msg"></div></div>
+        <div><label class="req" for="phone">Phone number</label><input type="tel" id="phone" name="Phone" placeholder="08012345678" required><div class="msg"></div></div>
+        <div class="full"><label class="req" for="address">Home address</label><textarea id="address" name="Home address" required></textarea><div class="msg"></div></div>
+        <div><label for="city">City / town</label><input type="text" id="city" name="City"></div>
+        <div><label for="country">Country</label><input type="text" id="country" name="Country"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Academic details</legend>
+      <div class="grid">
+        <div><label class="req" for="matric">Matric / registration number</label><input type="text" id="matric" name="Matric number" required><div class="msg"></div></div>
+        <div>
+          <label class="req" for="level">Level</label>
+          <select id="level" name="Level" required>
+            <option value="">Select level</option><option>100</option><option>200</option><option>300</option><option>400</option><option>500</option>
+          </select><div class="msg"></div>
+        </div>
+        <div><label class="req" for="faculty">Faculty</label><input type="text" id="faculty" name="Faculty" required><div class="msg"></div></div>
+        <div><label class="req" for="department">Department</label><input type="text" id="department" name="Department" required><div class="msg"></div></div>
+        <div><label class="req" for="course">Course of study</label><input type="text" id="course" name="Course of study" required><div class="msg"></div></div>
+        <div>
+          <label class="req" for="mode">Mode of study</label>
+          <select id="mode" name="Mode of study" required>
+            <option value="">Select</option><option>Full-time</option><option>Part-time</option><option>Distance learning</option>
+          </select><div class="msg"></div>
+        </div>
+        <div><label for="session">Academic session</label><input type="text" id="session" name="Session" placeholder="2026/2027"></div>
+        <div><label for="jamb">JAMB / entry score</label><input type="number" id="jamb" name="Entry score" min="0" max="400"><div class="msg"></div></div>
+        <div class="full">
+          <span class="label">Extra-curricular interests</span>
+          <div class="choices">
+            <label><input type="checkbox" name="Interests" value="Sports"> Sports</label>
+            <label><input type="checkbox" name="Interests" value="Music"> Music</label>
+            <label><input type="checkbox" name="Interests" value="Coding club"> Coding club</label>
+            <label><input type="checkbox" name="Interests" value="Debate"> Debate</label>
+            <label><input type="checkbox" name="Interests" value="Volunteering"> Volunteering</label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Guardian / next of kin</legend>
+      <div class="grid">
+        <div><label class="req" for="gName">Full name</label><input type="text" id="gName" name="Guardian name" required><div class="msg"></div></div>
+        <div>
+          <label for="gRel">Relationship</label>
+          <select id="gRel" name="Guardian relationship"><option value="">Select</option><option>Parent</option><option>Sibling</option><option>Guardian</option><option>Spouse</option><option>Other</option></select>
+        </div>
+        <div><label class="req" for="gPhone">Phone number</label><input type="tel" id="gPhone" name="Guardian phone" required><div class="msg"></div></div>
+        <div><label for="gEmail">Email address</label><input type="email" id="gEmail" name="Guardian email"><div class="msg"></div></div>
+        <div class="full"><label for="gAddress">Address</label><textarea id="gAddress" name="Guardian address"></textarea></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Health information</legend>
+      <div class="grid">
+        <div>
+          <label for="blood">Blood group</label>
+          <select id="blood" name="Blood group"><option value="">Select</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select>
+        </div>
+        <div><label for="genotype">Genotype</label><select id="genotype" name="Genotype"><option value="">Select</option><option>AA</option><option>AS</option><option>SS</option><option>AC</option></select></div>
+        <div class="full"><label for="medical">Allergies or conditions the school should know about</label><textarea id="medical" name="Medical notes"></textarea></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Declaration</legend>
+      <div class="declare">
+        <p>I confirm that the information I have given is true and complete. I understand that false information may lead to cancellation of my admission.</p>
+        <div class="choices"><label><input type="checkbox" id="agree"> I agree to the declaration above</label></div>
+        <div class="msg" id="agreeMsg"></div>
+      </div>
+    </fieldset>
+
+    <div class="actions">
+      <button type="reset">Clear form</button>
+      <button type="submit">Submit registration</button>
+    </div>
+  </form>
+
+  <section id="summary" aria-live="polite">
+    <div class="ok"><strong>Registration received.</strong> Check your details below.</div>
+    <h2>Your submitted details</h2>
+    <table id="summaryTable"></table>
+    <button type="button" id="backBtn">Back to form</button>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
