@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Biodata</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="sheet">
+    <header class="top">
+      <div class="crest">U</div>
+      <div>
+        <p class="small">Office of the Registrar</p>
+        <h1>Student Biodata Form</h1>
+        <p class="small">Fill every line in clear, honest detail.</p>
+      </div>
+    </header>
+
+    <form id="bioForm" novalidate>
+
+      <section>
+        <h2><b>01</b> About you</h2>
+
+        <div class="grid">
+          <div class="field">
+            <input type="text" id="surname" name="surname" placeholder=" " required>
+            <label for="surname">Surname</label>
+          </div>
+          <div class="field">
+            <input type="text" id="othernames" name="othernames" placeholder=" " required>
+            <label for="othernames">Other names</label>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <input type="text" id="dob" name="dob" placeholder=" " required>
+            <label for="dob">Date of birth (DD/MM/YYYY)</label>
+          </div>
+          <div class="field">
+            <input type="text" id="nationality" name="nationality" placeholder=" " required>
+            <label for="nationality">Nationality</label>
+          </div>
+          <div class="field">
+            <input type="text" id="state" name="state" placeholder=" " required>
+            <label for="state">State of origin</label>
+          </div>
+          <div class="field">
+            <input type="text" id="lga" name="lga" placeholder=" " required>
+            <label for="lga">Local government area</label>
+          </div>
+        </div>
+
+        <fieldset class="choice">
+          <legend>Gender</legend>
+          <label><input type="radio" name="gender" value="Male"><span>Male</span></label>
+          <label><input type="radio" name="gender" value="Female"><span>Female</span></label>
+        </fieldset>
+      </section>
+
+      <section>
+        <h2><b>02</b> Academics</h2>
+
+        <div class="grid">
+          <div class="field">
+            <input type="text" id="matric" name="matric" placeholder=" " required>
+            <label for="matric">Matric number</label>
+          </div>
+          <div class="field">
+            <input type="text" id="faculty" name="faculty" placeholder=" " required>
+            <label for="faculty">Faculty</label>
+          </div>
+          <div class="field wide">
+            <input type="text" id="department" name="department" placeholder=" " required>
+            <label for="department">Department / course of study</label>
+          </div>
+        </div>
+
+        <fieldset class="choice">
+          <legend>Level</legend>
+          <label><input type="radio" name="level" value="100"><span>100</span></label>
+          <label><input type="radio" name="level" value="200"><span>200</span></label>
+          <label><input type="radio" name="level" value="300"><span>300</span></label>
+          <label><input type="radio" name="level" value="400"><span>400</span></label>
+          <label><input type="radio" name="level" value="500"><span>500</span></label>
+        </fieldset>
+      </section>
+
+      <section>
+        <h2><b>03</b> Reaching you</h2>
+        <div class="grid">
+          <div class="field">
+            <input type="tel" id="phone" name="phone" placeholder=" " required>
+            <label for="phone">Phone number</label>
+          </div>
+          <div class="field">
+            <input type="email" id="email" name="email" placeholder=" " required>
+            <label for="email">Email address</label>
+          </div>
+          <div class="field wide">
+            <input type="text" id="address" name="address" placeholder=" " required>
+            <label for="address">Home address</label>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2><b>04</b> Next of kin</h2>
+        <div class="grid">
+          <div class="field">
+            <input type="text" id="kinName" name="kinName" placeholder=" " required>
+            <label for="kinName">Full name</label>
+          </div>
+          <div class="field">
+            <input type="text" id="kinRelation" name="kinRelation" placeholder=" " required>
+            <label for="kinRelation">Relationship to you</label>
+          </div>
+          <div class="field">
+            <input type="tel" id="kinPhone" name="kinPhone" placeholder=" " required>
+            <label for="kinPhone">Phone number</label>
+          </div>
+          <div class="field">
+            <input type="text" id="kinAddress" name="kinAddress" placeholder=" " required>
+            <label for="kinAddress">Address</label>
+          </div>
+        </div>
+      </section>
+
+      <p class="note" id="note"></p>
+
+      <div class="actions">
+        <button type="reset" class="ghost" id="clearBtn">Clear</button>
+        <button type="submit">Submit biodata</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="receipt">
+      <h3>Biodata received</h3>
+      <p class="small">Check the details below.</p>
+      <dl id="summary"></dl>
+      <div class="actions">
+        <button class="ghost" id="backBtn">Edit</button>
+        
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
