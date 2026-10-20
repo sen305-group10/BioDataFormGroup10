@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Bio Data Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            color: #174ea6;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: #174ea6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #103778;
+        }
+
+        #message {
+            margin-top: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Student Bio Data Form</h2>
+
+        <form id="bioForm">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" required>
+
+            <label for="matric">Matric Number:</label>
+            <input type="text" id="matric" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" min="1" max="120" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" required>
+                <option value="">Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="department">Department:</label>
+            <input type="text" id="department" required>
+
+            <button type="submit">Submit Bio Data</button>
+        </form>
+
+        <p id="message" role="status"></p>
+    </div>
+
+    <script>
+        const form = document.getElementById("bioForm");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const fullname =
+                document.getElementById("fullname").value.trim();
+            const matric =
+                document.getElementById("matric").value.trim();
+            const age =
+                Number(document.getElementById("age").value);
+
+            if (fullname.length < 2) {
+                message.style.color = "red";
+                message.textContent =
+                    "Please enter your full name correctly.";
+                return;
+            }
+
+            if (matric.length < 3) {
+                message.style.color = "red";
+                message.textContent =
+                    "Please enter a valid matric number.";
+                return;
+            }
+
+            if (age < 1 || age > 120) {
+                message.style.color = "red";
+                message.textContent =
+                    "Please enter a valid age.";
+                return;
+            }
+
+            message.style.color = "green";
+            message.textContent =
+                "Bio data submitted successfully!";
+        });
+    </script>
+</body>
+</html>
